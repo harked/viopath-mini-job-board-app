@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -54,11 +54,11 @@ export function DashboardHeader({ user, profile }: DashboardHeaderProps) {
             </Button>
 
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center space-x-2">
-                  <User className="w-4 h-4" />
-                  <span className="hidden sm:inline">{profile?.full_name || user.email}</span>
-                </Button>
+              <DropdownMenuTrigger
+                className={buttonVariants({ variant: "ghost", className: "flex items-center space-x-2" })}
+              >
+                <User className="w-4 h-4" />
+                <span className="hidden sm:inline">{profile?.full_name || user.email}</span>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56">
                 <DropdownMenuItem asChild>
