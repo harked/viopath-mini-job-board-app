@@ -13,7 +13,7 @@ export default function HomePage() {
             <Link
               id="logo"
               href="/"
-              className="flex items-center space-x-2 cursor-pointer"
+              className="flex items-center space-x-2"
               aria-label="VioPath Home"
             >
               <Briefcase className="w-8 h-8 text-blue-600" />
