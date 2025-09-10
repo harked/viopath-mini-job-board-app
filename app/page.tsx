@@ -2,8 +2,13 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 import { Briefcase, Users, MapPin, Clock } from "lucide-react"
+import { createClient } from "@/lib/supabase/server"
 
-export default function HomePage() {
+export default async function HomePage() {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
       {/* Header */}
@@ -20,12 +25,20 @@ export default function HomePage() {
               <h1 className="text-xl font-bold text-slate-900">VioPath</h1>
             </Link>
             <div className="flex items-center space-x-4">
-              <Button asChild variant="ghost">
-                <Link href="/auth/login">Sign In</Link>
-              </Button>
-              <Button asChild className="bg-blue-600 hover:bg-blue-700">
-                <Link href="/auth/sign-up">Sign Up</Link>
-              </Button>
+              {user ? (
+                <Button asChild className="bg-blue-600 hover:bg-blue-700">
+                  <Link href="/dashboard">Dashboard</Link>
+                </Button>
+              ) : (
+                <>
+                  <Button asChild variant="ghost">
+                    <Link href="/auth/login">Sign In</Link>
+                  </Button>
+                  <Button asChild className="bg-blue-600 hover:bg-blue-700">
+                    <Link href="/auth/sign-up">Sign Up</Link>
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         </div>
