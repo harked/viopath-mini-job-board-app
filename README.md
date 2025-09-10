@@ -176,6 +176,23 @@ Run the SQL scripts against your production Supabase database before first deplo
 
 ---
 
+## What would you improve if given more time?
+Here’s what I’d prioritize to evolve this into a resilient, production‑ready MVP while staying focused on outcomes for both employers and candidates:
+
+- **Product polish**: Add edit, draft, preview, and duplicate for job posts; support expiration dates, renewals, and a clear status lifecycle (draft → active → expired → archived).
+- **Search UX**: Add pagination/infinite scroll, sort (newest, salary), and a dedicated Remote/Hybrid toggle. Improve search with Postgres full‑text indexes and weighted relevance across title/company/description.
+- **Company identity**: Company profiles with logo upload (Supabase Storage), website, and short blurb; job cards and details show branding; company page lists all active jobs.
+- **Job content**: Optional rich text/Markdown with safe rendering; enforce max lengths and basic formatting guidance. Generate stable, shareable slugs like `jobs/fullstack-engineer-viopath-<id>`.
+- **Candidate features**: Save jobs (favorites), email alerts for new jobs matching filters, recently viewed, easy share links, and a consistent application CTA. Optional in‑app application form with file upload (resume) via Storage for a later iteration.
+- **Employer features**: Lightweight analytics (views, detail clicks, application CTA clicks) summarized on dashboard; simple CSV export; ability to clone jobs to speed up repeat postings.
+- **SEO & discovery**: JSON‑LD JobPosting schema, per‑job OG tags, canonical URLs, robots/sitemap for jobs and companies, and RSS feed for latest jobs.
+- **Quality & trust**: Strong client/server validation (e.g., zod on Server Actions), better error/loading states, rate limiting and basic captcha on posting to deter spam, simple “Report job” flow, and moderation tools (admin toggle to unlist).
+- **Architecture & performance**: Server‑derived user ID in Server Actions (avoid client‑passing userId), DB triggers for `updated_at`, tighter RLS tests, additional indexes (e.g., on job_type/location), and measured caching (ISR or segment revalidation) on public pages.
+- **Observability & testing**: Add Sentry (errors) and simple logs for Server Actions; Playwright e2e for auth → post → list → detail; smoke tests for RLS queries.
+- **Accessibility & i18n**: A11y pass (focus states, semantics, keyboard paths), time‑ago and currency formatting, and groundwork for i18n (copy centralization) if needed later.
+
+--- 
+
 ## License
 
 This project is provided as‑is for demonstration purposes. Add a license of your choice if you plan to distribute.
