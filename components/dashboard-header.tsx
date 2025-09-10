@@ -39,7 +39,7 @@ export function DashboardHeader({ user, profile }: DashboardHeaderProps) {
           <div className="flex items-center space-x-4">
             <Link href="/" className="flex items-center space-x-2">
               <Briefcase className="w-8 h-8 text-blue-600" />
-              <h1 className="text-xl font-bold text-slate-900">JobBoard</h1>
+              <h1 className="text-xl font-bold text-slate-900">VioPath</h1>
             </Link>
             <div className="h-6 w-px bg-slate-300" />
             <span className="text-slate-600">Dashboard</span>
