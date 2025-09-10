@@ -21,9 +21,6 @@ export function JobDetailHeader() {
             </Link>
           </div>
           <div className="flex items-center space-x-4">
-            <Button asChild variant="ghost">
-              <Link href="/auth/login">Sign In</Link>
-            </Button>
             <Button asChild className="bg-blue-600 hover:bg-blue-700">
               <Link href="/post-job">Post a Job</Link>
             </Button>
