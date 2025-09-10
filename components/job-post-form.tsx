@@ -31,7 +31,8 @@ export function JobPostForm({ userId }: JobPostFormProps) {
         router.push("/dashboard")
       }
     } catch (error) {
-      setError("An unexpected error occurred. Please try again.")
+      console.error("Error occurred while creating job post:", error);
+      setError("Something went wrong while submitting the job post. Please try again later.");
     } finally {
       setIsLoading(false)
     }
