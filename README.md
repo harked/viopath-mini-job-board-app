@@ -1,5 +1,7 @@
 # VioPath: Mini Job Board (Next.js + Supabase)
 
+<img width="1365" height="1245" alt="image" src="https://github.com/user-attachments/assets/6d06d589-2fcb-4d6e-91c3-8b3e482ebacf" />
+
 A simple job board where users can sign up, post jobs, and browse active listings. Built with Next.js App Router, Tailwind CSS, and Supabase for auth and data.
 
 ## Features
