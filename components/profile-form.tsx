@@ -42,6 +42,7 @@ export function ProfileForm({ user, profile }: ProfileFormProps) {
         router.refresh()
       }
     } catch (error) {
+      console.error("Error updating profile:", error);
       setError("An unexpected error occurred. Please try again.")
     } finally {
       setIsLoading(false)
