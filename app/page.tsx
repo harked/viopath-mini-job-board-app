@@ -5,27 +5,33 @@ import { Briefcase, Users, MapPin, Clock } from "lucide-react"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen flex flex-col bg-slate-50">
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-2">
+            <Link
+              id="logo"
+              href="/"
+              className="flex items-center space-x-2"
+              aria-label="VioPath Home"
+            >
               <Briefcase className="w-8 h-8 text-blue-600" />
               <h1 className="text-xl font-bold text-slate-900">VioPath</h1>
-            </div>
+            </Link>
             <div className="flex items-center space-x-4">
               <Button asChild variant="ghost">
                 <Link href="/auth/login">Sign In</Link>
               </Button>
               <Button asChild className="bg-blue-600 hover:bg-blue-700">
-                <Link href="/auth/sign-up">Get Started</Link>
+                <Link href="/auth/sign-up">Sign Up</Link>
               </Button>
             </div>
           </div>
         </div>
       </header>
 
+      <main className="flex-1">
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
@@ -109,6 +115,7 @@ export default function HomePage() {
           </Button>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer className="bg-slate-900 text-slate-300 py-8 px-4">
