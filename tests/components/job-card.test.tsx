@@ -15,7 +15,6 @@ vi.mock('next/link', () => ({
 import { JobCard } from '@/components/job-card'
 
 describe('JobCard', () => {
-  const realDate = Date
 
   beforeAll(() => {
     vi.useFakeTimers()
