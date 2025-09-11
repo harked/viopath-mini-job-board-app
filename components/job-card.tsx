@@ -89,7 +89,6 @@ export function JobCard({ job }: JobCardProps) {
           <div className="flex items-center space-x-4">
             {salary && (
               <div className="flex items-center text-green-600 text-sm font-medium">
-                <DollarSign className="w-4 h-4 mr-1" />
                 {salary}
               </div>
             )}

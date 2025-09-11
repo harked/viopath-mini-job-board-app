@@ -142,7 +142,6 @@ export function UserJobsList({ jobs, userId }: UserJobsListProps) {
                       <Badge variant="outline">{formatJobType(job.job_type)}</Badge>
                       {salary && (
                         <div className="flex items-center space-x-1 text-green-600">
-                          <DollarSign className="w-4 h-4" />
                           <span>{salary}</span>
                         </div>
                       )}
