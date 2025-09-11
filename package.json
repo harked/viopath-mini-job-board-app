@@ -7,7 +7,9 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "seed:jobs": "node scripts/seed-jobs.mjs"
+    "seed:jobs": "node scripts/seed-jobs.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "latest",
@@ -29,12 +31,17 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "jsdom": "^25.0.0",
     "postcss": "^8.5",
     "tailwindcss": "^4.1.9",
     "tw-animate-css": "1.3.3",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^2.1.3"
   }
 }
