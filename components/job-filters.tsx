@@ -46,7 +46,6 @@ export function JobFilters() {
     <Card className="sticky top-4">
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle className="text-lg">Filters</CardTitle>
           {hasActiveFilters && (
             <Button variant="ghost" size="sm" onClick={clearFilters}>
               <X className="w-4 h-4 mr-1" />
@@ -72,59 +71,65 @@ export function JobFilters() {
           </div>
         </div>
 
-        {/* Job Type */}
-        <div className="space-y-2">
-          <Label htmlFor="job-type">Job Type</Label>
-          <Select value={jobType} onValueChange={setJobType}>
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Types</SelectItem>
-              <SelectItem value="full-time">Full-time</SelectItem>
-              <SelectItem value="part-time">Part-time</SelectItem>
-              <SelectItem value="contract">Contract</SelectItem>
-              <SelectItem value="internship">Internship</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
-        {/* Location */}
-        <div className="space-y-2">
-          <Label htmlFor="location">Location</Label>
-          <Input
-            id="location"
-            placeholder="City, state, or remote"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && updateFilters()}
-          />
-        </div>
-
-        {/* Salary Range */}
-        <div className="space-y-2">
-          <Label>Salary Range (USD)</Label>
-          <div className="grid grid-cols-2 gap-2">
+        {/* Job Type, Location, Salary Range, and Apply Filters in one row */}
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:gap-4">
+          {/* Location */}
+          <div className="flex-1 space-y-2 min-w-0">
+            <Label htmlFor="location">Location</Label>
             <Input
-              placeholder="Min"
-              type="number"
-              value={salaryMin}
-              onChange={(e) => setSalaryMin(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && updateFilters()}
-            />
-            <Input
-              placeholder="Max"
-              type="number"
-              value={salaryMax}
-              onChange={(e) => setSalaryMax(e.target.value)}
+              id="location"
+              placeholder="City, state, or remote"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && updateFilters()}
             />
           </div>
-        </div>
 
-        <Button onClick={updateFilters} className="w-full bg-blue-600 hover:bg-blue-700">
-          Apply Filters
-        </Button>
+          {/* Salary Range */}
+          <div className="flex-1 space-y-2 min-w-0">
+            <Label>Salary Range (USD)</Label>
+            <div className="flex gap-2">
+              <Input
+                placeholder="Min"
+                type="number"
+                value={salaryMin}
+                onChange={(e) => setSalaryMin(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && updateFilters()}
+              />
+              <Input
+                placeholder="Max"
+                type="number"
+                value={salaryMax}
+                onChange={(e) => setSalaryMax(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && updateFilters()}
+              />
+            </div>
+          </div>
+
+          {/* Job Type */}
+          <div className="flex-1 space-y-2 min-w-0">
+            <Label htmlFor="job-type">Job Type</Label>
+            <Select value={jobType} onValueChange={setJobType}>
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Types</SelectItem>
+                <SelectItem value="full-time">Full-time</SelectItem>
+                <SelectItem value="part-time">Part-time</SelectItem>
+                <SelectItem value="contract">Contract</SelectItem>
+                <SelectItem value="internship">Internship</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Apply Filters Button */}
+          <div className="flex-1 flex flex-col justify-end min-w-0">
+            <Button onClick={updateFilters} className="w-full bg-blue-600 hover:bg-blue-700 mt-6 md:mt-0">
+              Apply Filters
+            </Button>
+          </div>
+        </div>
       </CardContent>
     </Card>
   )
